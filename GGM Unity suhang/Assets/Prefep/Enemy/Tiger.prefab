@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682764956692653547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: -1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 6143233520448089459}
@@ -92,9 +92,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6143233520448089459}
   - component: {fileID: 6143233520448089456}
-  - component: {fileID: 6143233520448089458}
   - component: {fileID: 6143233520448089461}
   - component: {fileID: -9106191372052616353}
+  - component: {fileID: 2646959305916143349}
   m_Layer: 10
   m_Name: Tiger
   m_TagString: Enemy
@@ -169,35 +169,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6143233520448089458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6143233520448089457}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781626bbf88fbfb48bdd09a3d0084cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
-  score: 400
-  hp: 150
-  armor:
-  - 2
-  - 100
-  - 0.1
-  - 1
-  gameManager: {fileID: 0}
-  RPM: 0
-  reloadTime: 0
-  firePos: {fileID: 0}
-  shootRound: 0
-  Bullet: {fileID: 0}
-  isZoom: 0
-  customRotaitonZFix: 0
-  customStopPos: {x: 0, y: 0}
 --- !u!61 &6143233520448089461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -236,25 +207,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8f6a71690f93940819cff846fa4281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 1
   score: 400
-  hp: 150
+  hp: 250
   armor:
-  - 2
-  - 100
-  - 0.1
   - 1
-  gameManager: {fileID: 0}
+  - 100
   RPM: 0
   reloadTime: 5
   firePos: {fileID: 8339233991045697406}
   shootRound: 1
   Bullet: {fileID: 2938098350009831115, guid: 46ff42a229d612f48ad3f34bce068d29, type: 3}
   isZoom: 1
-  customRotaitonZFix: 180
-  customStopPos: {x: 0, y: 0}
-  isStop: 0
-  stopPos: 5
+  customRotaitonZFix: 0
+  customStopPos: {x: 6, y: 8}
+  fire: {fileID: 2646959305916143349}
+--- !u!82 &2646959305916143349
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143233520448089457}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: df0016aa77592074bb7d531069ab850d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8718530912770997546
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8718530912770997546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.915, y: 0.644, z: 0}
+  m_LocalPosition: {x: 1.915, y: 0.444, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6143233520448089459}

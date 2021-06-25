@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 5
+  isPooling: 1
 --- !u!61 &49060921600979873
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7897547881285549935
 Transform:
   m_ObjectHideFlags: 0

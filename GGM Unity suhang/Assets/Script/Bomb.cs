@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public GameObject particle;
-    public float damage;
+    [SerializeField]
+    private GameObject particle;
     private void Update()
     {
         if (transform.position.y < -15)

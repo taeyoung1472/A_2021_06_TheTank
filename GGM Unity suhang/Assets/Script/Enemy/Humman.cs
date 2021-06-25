@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Humman : EnemyMove
 {
-    public bool isStop = false;
-    public float stopPos;
+    private bool isStop = false;
+    private float stopPos;
     private void Awake()
     {
-        stopPos = Random.Range(-1, 6);
+        stopPos = Random.Range(customStopPos.x, customStopPos.y);
     }
     protected override void Update()
     {

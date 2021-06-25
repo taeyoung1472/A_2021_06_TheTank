@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class EnemyBulletMove : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private float speed;
     public int damage;
-    private GameManager gameManager;
-    private void Awake()
-    {
-        //gameManager = FindObjectOfType<GameManager>();
-    }
     void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -23,7 +19,6 @@ public class EnemyBulletMove : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
-            //gameManager.Damaged(damage);
             Destroy(gameObject);
         }
     }

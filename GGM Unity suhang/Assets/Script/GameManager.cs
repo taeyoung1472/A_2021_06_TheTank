@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Slider hpSlider;
     private Scene scene;
+    [SerializeField]
+    private GameObject gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +72,8 @@ public class GameManager : MonoBehaviour
             hp = 1000;
         hpSlider.value = hp * 0.001f;
         if (hp <= 0)
-            scene.ReturnToMenu();
+            gameOver.SetActive(true);
+            //scene.ReturnToMenu();
     }
     private IEnumerator HumanSpawn()
     {

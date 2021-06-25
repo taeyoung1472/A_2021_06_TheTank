@@ -8,7 +8,7 @@ public class Bunker : EnemyMove
     protected override void Update()
     {
         transform.Translate(Vector2.left * Time.deltaTime * speed);
-        if (transform.position.x < 6 && isStop == false)
+        if (transform.position.x < 9 && isStop == false)
         {
             speed = 0;
             StartCoroutine(Shoot());

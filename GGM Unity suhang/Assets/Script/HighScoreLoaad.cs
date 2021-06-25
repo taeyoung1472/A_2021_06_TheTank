@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HighScoreLoaad : MonoBehaviour
 {
-    public Text bestTxt;
-    public int bestScore;
+    [SerializeField]
+    private Text bestTxt;
+    private int bestScore;
     void Start()
     {
         bestScore = PlayerPrefs.GetInt("Best");

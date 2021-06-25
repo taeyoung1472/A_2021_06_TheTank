@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PlaneMove1 : MonoBehaviour
 {
-    public float RPM;
-    public float speed;
-    public GameObject bullet;
-    public AudioSource audio;
-    public Transform FirePos;
+    [SerializeField]
+    private float RPM;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private GameObject bullet;
+    [SerializeField]
+    private AudioSource audio;
+    [SerializeField]
+    private Transform FirePos;
     void Start()
     {
         StartCoroutine(Fire());

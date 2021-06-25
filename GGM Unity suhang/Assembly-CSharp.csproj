@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Destroy.cs" />
     <Compile Include="Assets\Script\Enemy\Humman.cs" />
+    <Compile Include="Assets\Script\Item.cs" />
     <Compile Include="Assets\Script\BulletMove.cs" />
     <Compile Include="Assets\Script\PlaneMove.cs" />
     <Compile Include="Assets\Script\Information.cs" />
@@ -67,7 +68,6 @@
     <Compile Include="Assets\Script\Bomber.cs" />
     <Compile Include="Assets\Script\HighScoreLoaad.cs" />
     <Compile Include="Assets\Script\PlaneMove1.cs" />
-    <Compile Include="Assets\Script\HpBar.cs" />
     <Compile Include="Assets\Script\ClickSound.cs" />
     <Compile Include="Assets\Script\Scene.cs" />
     <Compile Include="Assets\Script\Support.cs" />
@@ -77,8 +77,8 @@
     <Compile Include="Assets\Script\PlayerMove.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBulletMove.cs" />
     <Compile Include="Assets\Script\Bomb.cs" />
-    <Compile Include="Assets\Script\Item.cs" />
-    <Compile Include="Assets\Script\FPSCheck.cs" />
+    <Compile Include="Assets\Script\GameOverEffect.cs" />
+    <Compile Include="Assets\Script\PoolManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

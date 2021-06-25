@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Support : MonoBehaviour
 {
-    public int hp;
-    public AudioSource audio;
-    public Image image;
-    public Button button;
-    public float coolTime = 10.0f;
-    public bool isClicked = false;
-    float leftTime = 10.0f;
-    float speed = 5.0f;
+    [SerializeField]
+    private AudioSource audio;
+    [SerializeField]
+    private Image image;
+    [SerializeField]
+    private Button button;
+    [SerializeField]
+    private float coolTime = 10.0f;
+    private bool isClicked = false;
+    private float leftTime = 10.0f;
+    private float speed = 5.0f;
     void Update()
     {
         if (isClicked)

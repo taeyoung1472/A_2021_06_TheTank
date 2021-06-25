@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Bomber : MonoBehaviour
 {
-    public float speed;
-    public GameObject bomb;
-    public Transform bombPos;
-    public float coolTime;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private GameObject bomb;
+    [SerializeField]
+    private Transform bombPos;
+    [SerializeField]
+    private float coolTime;
     private bool isOn = true;
     void Update()
     {

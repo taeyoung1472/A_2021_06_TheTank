@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NewClear : MonoBehaviour
 {
-    public GameObject Explosion;
+    [SerializeField]
+    private GameObject Explosion;
     void Update()
     {
         if(transform.position.y < -3)

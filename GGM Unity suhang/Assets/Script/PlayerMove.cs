@@ -4,28 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
-    public GameObject[] bullet;
-    public float speed;
-    public float[] fireDelay;
-    public Transform[] bulletPos;
-    public GameObject[] support;
-    public Vector2 mouse;
+    [SerializeField]
+    private GameObject[] bullet;
+    [SerializeField]
+    private float[] fireDelay;
+    [SerializeField]
+    private Transform[] bulletPos;
+    [SerializeField]
+    private GameObject[] support;
     public float[] posY = {-4,-2,0,2,4};
     public int n;
-    public int fuel = 10;
-    public Slider fuelSlider;
-    public bool canMove = true;
-    public bool isGunShoot = false;
-    public bool isCannonShoot = false;
-    public int basehp;
+    private int fuel = 10;
+    [SerializeField]
+    private Slider fuelSlider;
+    private bool canMove = true;
+    private bool isGunShoot = false;
+    private bool isCannonShoot = false;
     public int hp;
-    public AudioSource[] audio;
-    public Text baseHpText;
-    public Button[] supportBtn;
-    public Slider hpSlider;
-    public GameManager game;
+    [SerializeField]
+    private AudioSource[] audio;
+    [SerializeField]
+    private Slider hpSlider;
+    private GameManager game;
+    private PoolManager pool;
     void Start()
     {
+        pool = FindObjectOfType<PoolManager>();
+        Time.timeScale = 1;
         hpSlider.value = hp * 0.001f;
         game = FindObjectOfType<GameManager>();
         StartCoroutine(Fuel());
@@ -48,6 +53,7 @@ public class PlayerMove : MonoBehaviour
         if (collision.transform.tag == "Item")
         {
             game.Damaged(collision.transform.GetComponent<Item>().value * -1);
+            audio[3].Play();
             Destroy(collision.gameObject);
             //hpSlider.value = hp * 0.001f;
         }
@@ -87,12 +93,32 @@ public class PlayerMove : MonoBehaviour
             {
                 audio[1].Play();
                 GameObject Bullet;
-                Bullet = Instantiate(bullet[1], bulletPos[1].position, Quaternion.identity);
+                if(pool.transform.childCount > 0)
+                {
+                    Bullet = pool.transform.GetChild(0).gameObject;
+                    Bullet.SetActive(true);
+                    Bullet.transform.rotation = Quaternion.identity;
+                    Bullet.transform.SetParent(bulletPos[1], false);
+                    Bullet.transform.position = bulletPos[1].position;
+                    Bullet.transform.SetParent(null);
+                }
+                else
+                {
+                    Bullet = Instantiate(bullet[1], bulletPos[1].position, Quaternion.identity);
+                }
                 bullet[1].transform.SetParent(null);
             }
             yield return new WaitForSeconds(fireDelay[1]);
         }
     }
+    /*            bullet = gameManager.PoolManager.bulletPool.transform.GetChild(0).gameObject;
+            bullet.layer = LayerMask.NameToLayer("Player");
+            JudgeBullet();
+            bullet.SetActive(true);
+            bullet.transform.rotation = Quaternion.identity;
+            bullet.transform.SetParent(bulletPosition, false);
+            bullet.transform.position = bulletPosition.position;
+            bullet.transform.localScale = Vector2.one;*/
     public void up()
     {
         if (canMove == true)

@@ -4,23 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnemyMove : MonoBehaviour
 {
-    public float speed;
-    public int score;
-    public float hp;
-    public float[] armor;
+    [SerializeField]
+    protected float speed;
+    [SerializeField]
+    protected int score;
+    [SerializeField]
+    protected float hp;
+    [SerializeField]
+    protected float[] armor;
     private PlayerMove player;
     private GameObject playerObj;
-    public GameManager gameManager;
-    public float RPM;
-    public float reloadTime;
-    public Transform firePos;
-    public float shootRound;
-    public GameObject Bullet;
-    public bool isZoom;
+    protected GameManager gameManager;
+    [SerializeField]
+    private float RPM;
+    [SerializeField]
+    private float reloadTime;
+    [SerializeField]
+    private Transform firePos;
+    [SerializeField]
+    private float shootRound;
+    [SerializeField]
+    private GameObject Bullet;
+    [SerializeField]
+    private bool isZoom;
     private float rotationZ = 0f;
     private Vector2 diff = Vector2.zero;
-    public int customRotaitonZFix;
-    public Vector2 customStopPos;
+    [SerializeField]
+    private int customRotaitonZFix;
+    [SerializeField]
+    protected Vector2 customStopPos;
+    [SerializeField]
+    private AudioSource fire;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -72,6 +86,7 @@ public class EnemyMove : MonoBehaviour
                 }
                 else
                     Instantiate(Bullet, firePos.position, Quaternion.identity);
+                fire.Play();
                 yield return new WaitForSeconds(RPM);
             }
             yield return new WaitForSeconds(reloadTime);

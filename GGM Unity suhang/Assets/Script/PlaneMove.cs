@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlaneMove : MonoBehaviour
 {
-    public float RPM;
-    public float speed;
-    public GameObject bullet;
+    [SerializeField]
+    private float RPM;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private GameObject bullet;
     void Start()
     {
         StartCoroutine(Fire());
