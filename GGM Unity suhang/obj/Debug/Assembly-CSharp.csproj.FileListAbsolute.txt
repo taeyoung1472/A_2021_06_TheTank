@@ -1,0 +1,2 @@
+C:\Users\USER\Documents\GGM Unity suhang\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\USER\Documents\GGM Unity suhang\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
