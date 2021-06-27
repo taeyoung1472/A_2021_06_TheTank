@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Destroy.cs" />
+    <Compile Include="Assets\Script\PoolManager.cs" />
     <Compile Include="Assets\Script\Enemy\Humman.cs" />
     <Compile Include="Assets\Script\Item.cs" />
     <Compile Include="Assets\Script\BulletMove.cs" />
@@ -76,9 +77,10 @@
     <Compile Include="Assets\Script\Enemy\EnemyMove.cs" />
     <Compile Include="Assets\Script\PlayerMove.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBulletMove.cs" />
-    <Compile Include="Assets\Script\Bomb.cs" />
     <Compile Include="Assets\Script\GameOverEffect.cs" />
-    <Compile Include="Assets\Script\PoolManager.cs" />
+    <Compile Include="Assets\Script\Bomb.cs" />
+    <Compile Include="Assets\Script\Setting.cs" />
+    <Compile Include="Assets\Script\InGameSetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

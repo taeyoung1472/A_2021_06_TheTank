@@ -23,39 +23,29 @@ public class PlayerMove : MonoBehaviour
     public int hp;
     [SerializeField]
     private AudioSource[] audio;
-    [SerializeField]
-    private Slider hpSlider;
     private GameManager game;
     private PoolManager pool;
     void Start()
     {
         pool = FindObjectOfType<PoolManager>();
         Time.timeScale = 1;
-        hpSlider.value = hp * 0.001f;
         game = FindObjectOfType<GameManager>();
         StartCoroutine(Fuel());
         StartCoroutine(Fuelsystem());
         StartCoroutine(FireGun());
         StartCoroutine(FireCannon());
     }
-    private void Update()
-    {
-        if (hp > 1000)
-            hp = 1000;
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.transform.tag == "Enemy")
         {
             game.Damaged(collision.transform.GetComponent<EnemyBulletMove>().damage);
-            //hpSlider.value = hp * 0.001f;
         }
         if (collision.transform.tag == "Item")
         {
             game.Damaged(collision.transform.GetComponent<Item>().value * -1);
             audio[3].Play();
             Destroy(collision.gameObject);
-            //hpSlider.value = hp * 0.001f;
         }
     }
     public void UIupdate()
@@ -74,7 +64,7 @@ public class PlayerMove : MonoBehaviour
     {
         while (true)
         {
-            if (isCannonShoot == true)
+            if (isCannonShoot == true && isGunShoot == false)
             {
                 audio[0].Play();
                 GameObject Bullet;
@@ -89,7 +79,7 @@ public class PlayerMove : MonoBehaviour
     {
         while (true)
         {
-            if (isGunShoot == true)
+            if (isGunShoot == true && isCannonShoot == false)
             {
                 audio[1].Play();
                 GameObject Bullet;

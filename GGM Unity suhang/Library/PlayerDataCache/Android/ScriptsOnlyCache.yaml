@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - GameOverEffect
     - HighScoreLoaad
     - Humman
+    - InGameSetting
     - Information
     - Item
     - NewClear
@@ -22,6 +23,7 @@ ScriptsOnlyBuild:
     - PoolManager
     - RPGBullet
     - Scene
+    - Setting
     - Support
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -36,10 +38,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -98,45 +98,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 12098}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12132}
+      Script: {instanceID: 12100}
     - Class: 114
       Script: {instanceID: 12134}
     - Class: 114
-      Script: {instanceID: 12164}
+      Script: {instanceID: 12136}
     - Class: 114
-      Script: {instanceID: 12190}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12414}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12830}
+      Script: {instanceID: 12416}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12832}
     - Class: 114
-      Script: {instanceID: 12934}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 12990}
+      Script: {instanceID: 12936}
     - Class: 114
-      Script: {instanceID: 13138}
+      Script: {instanceID: 12992}
+    - Class: 114
+      Script: {instanceID: 13140}
     - Class: 114
       Script: {instanceID: 13698}
     - Class: 114
       Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 13848}
+      Script: {instanceID: 13846}
     - Class: 114
-      Script: {instanceID: 14026}
+      Script: {instanceID: 14024}
     - Class: 114
-      Script: {instanceID: 14330}
+      Script: {instanceID: 14328}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 14382}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14388}
     - Class: 114
-      Script: {instanceID: 14528}
+      Script: {instanceID: 14526}
     - Class: 114
-      Script: {instanceID: 14594}
+      Script: {instanceID: 14592}
+    - Class: 114
+      Script: {instanceID: 14598}
     - Class: 114
       Script: {instanceID: 15008}
     - Class: 114
@@ -146,9 +150,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15214}
     - Class: 114
-      Script: {instanceID: 31476}
-    - Class: 114
-      Script: {instanceID: 81114}
+      Script: {instanceID: 43938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -201,15 +203,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11822}
     - Class: 114
-      Script: {instanceID: 12132}
+      Script: {instanceID: 12134}
     - Class: 114
-      Script: {instanceID: 12190}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12358}
+      Script: {instanceID: 12360}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13008}
     - Class: 114
       Script: {instanceID: 13640}
     - Class: 114
@@ -217,9 +219,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 14528}
+      Script: {instanceID: 14526}
     - Class: 114
       Script: {instanceID: 15168}
+    - Class: 114
+      Script: {instanceID: 41490}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -249,6 +253,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Destroy
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PoolManager
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -527,7 +537,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 3f36eb8f1125aaa582cd482ffeb2c5e0
+      Hash: 66c24bc8426167590a461bae8707fc82
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HighScoreLoaad
@@ -593,7 +603,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: d2655c4ac944cf8ad7142d2bd4b67369
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Scene
@@ -683,7 +693,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: a8a9b26ada476cfcd4d9b6f13615e30b
+      Hash: 55cbbbb761914563a95a3e0a1b353138
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -695,7 +705,7 @@ ScriptsOnlyBuild:
     className: EnemyMove
   - hash:
       serializedVersion: 2
-      Hash: eb4f74d22b319296cc6c822aa05510ac
+      Hash: 07a0508b30a792a7008968ef70f45b1b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMove
@@ -729,6 +739,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyBulletMove
+  - hash:
+      serializedVersion: 2
+      Hash: 92b6a0aa7012529914ea5c56ae6afe99
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameOverEffect
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -845,16 +861,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 92b6a0aa7012529914ea5c56ae6afe99
+      Hash: 814c724ae8d55dac1e0bb8b567a4cc4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: GameOverEffect
+    className: Setting
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 5ff5b8bb422d0543c0616a2bec0f46f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PoolManager
+    className: InGameSetting
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main.unity

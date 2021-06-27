@@ -26,10 +26,27 @@ public class GameManager : MonoBehaviour
     private Scene scene;
     [SerializeField]
     private GameObject gameOver;
+    private bool isHard;
+    [SerializeField]
+    private GameObject armorCarry;
+    [SerializeField]
+    private Slider armor;
     // Start is called before the first frame update
     void Start()
     {
+        hpSlider.value = hp * 0.001f;
+        if (PlayerPrefs.GetInt("Difficulty") == 0)
+        {
+            isHard = false;
+        }
+        else
+        {
+            isHard = true;
+        }
+        if (isHard == true)
+            Difficulty = 0.2f;
         scene = FindObjectOfType<Scene>();
+        Debug.Log(isHard);
         Load();
         updateUI();
         StartCoroutine(HumanSpawn());
@@ -53,11 +70,25 @@ public class GameManager : MonoBehaviour
     }
     void Save()
     {
-        PlayerPrefs.SetInt("Best", best);
+        if(isHard == false)
+        {
+            PlayerPrefs.SetInt("Best", best);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("HardBest", best);
+        }
     }
     void Load()
     {
-        best = PlayerPrefs.GetInt("Best");
+        if(isHard == false)
+        {
+            best = PlayerPrefs.GetInt("Best");
+        }
+        else
+        {
+            best = PlayerPrefs.GetInt("HardBest");
+        }
     }
     void updateUI()
     {
@@ -69,11 +100,20 @@ public class GameManager : MonoBehaviour
     {
         hp -= damage;
         if (hp > 1000)
-            hp = 1000;
-        hpSlider.value = hp * 0.001f;
-        if (hp <= 0)
-            gameOver.SetActive(true);
-            //scene.ReturnToMenu();
+        {
+            armorCarry.SetActive(true);
+            armor.value = (hp - 1000) * 0.001f;
+            if (hp > 2000)
+                hp = 2000;
+        }
+        else
+        {
+            armor.value = 0;
+            armorCarry.SetActive(false);
+            hpSlider.value = hp * 0.001f;
+            if (hp <= 0)
+                gameOver.SetActive(true);
+        }
     }
     private IEnumerator HumanSpawn()
     {
@@ -126,7 +166,7 @@ public class GameManager : MonoBehaviour
         {
             high = Random.Range(-2, 2) * 2;
             Instantiate(enemy[4], new Vector2(15, high), Quaternion.identity);
-            yield return new WaitForSeconds(spawnCoolTime[4] * Difficulty);
+            yield return new WaitForSeconds(spawnCoolTime[4]);
         }
         //yield return new WaitForSeconds(1f);
     }
@@ -143,20 +183,41 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator DifficultyChange()
     {
-        yield return new WaitForSeconds(60);
-        Difficulty = 0.8f;
-        updateUI();
-        yield return new WaitForSeconds(60);
-        Difficulty = 0.6f;
-        updateUI();
-        yield return new WaitForSeconds(60);
-        Difficulty = 0.5f;
-        updateUI();
-        yield return new WaitForSeconds(60);
-        Difficulty = 0.4f;
-        updateUI();
-        yield return new WaitForSeconds(60);
-        Difficulty = 0.2f;
-        updateUI();
+        if(isHard == false)
+        {
+            yield return new WaitForSeconds(60);
+            Difficulty = 0.8f;
+            updateUI();
+            yield return new WaitForSeconds(60);
+            Difficulty = 0.6f;
+            updateUI();
+            yield return new WaitForSeconds(60);
+            Difficulty = 0.5f;
+            updateUI();
+            yield return new WaitForSeconds(60);
+            Difficulty = 0.4f;
+            updateUI();
+            yield return new WaitForSeconds(60);
+            Difficulty = 0.2f;
+            updateUI();
+        }
+        else
+        {
+            yield return new WaitForSeconds(30);
+            Difficulty = 0.2f;
+            updateUI();
+            yield return new WaitForSeconds(30);
+            Difficulty = 0.18f;
+            updateUI();
+            yield return new WaitForSeconds(30);
+            Difficulty = 0.15f;
+            updateUI();
+            yield return new WaitForSeconds(30);
+            Difficulty = 0.1f;
+            updateUI();
+            yield return new WaitForSeconds(30);
+            Difficulty = 0.05f;
+            updateUI();
+        }
     }
 }

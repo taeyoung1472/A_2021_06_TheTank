@@ -6,10 +6,15 @@ public class HighScoreLoaad : MonoBehaviour
 {
     [SerializeField]
     private Text bestTxt;
+    [SerializeField]
+    private Text bestHardTxt;
     private int bestScore;
+    private int bestScoreHard;
     void Start()
     {
         bestScore = PlayerPrefs.GetInt("Best");
+        bestScoreHard = PlayerPrefs.GetInt("HardBest");
         bestTxt.text = string.Format("BEST : {0}", bestScore);
+        bestHardTxt.text = string.Format("BEST : {0}", bestScoreHard);
     }
 }
