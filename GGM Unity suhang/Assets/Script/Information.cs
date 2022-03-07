@@ -19,10 +19,17 @@ public class Information : MonoBehaviour
     {
         information[1].SetActive(true);
         information[0].SetActive(false);
+        information[2].SetActive(false);
+    }
+    public void informationUse3()
+    {
+        information[2].SetActive(true);
+        information[1].SetActive(false);
     }
     public void informationExit()
     {
         information[0].SetActive(false);
         information[1].SetActive(false);
+        information[2].SetActive(false);
     }
 }

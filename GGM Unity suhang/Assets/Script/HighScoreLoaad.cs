@@ -10,6 +10,11 @@ public class HighScoreLoaad : MonoBehaviour
     private Text bestHardTxt;
     private int bestScore;
     private int bestScoreHard;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
     void Start()
     {
         bestScore = PlayerPrefs.GetInt("Best");

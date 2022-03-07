@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class GameManager : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class GameManager : MonoSingleTon<GameManager>
 {
     [SerializeField]
     private GameObject[] enemy;
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     private float[] spawnCoolTime;
     [SerializeField]
     private float[] FirstSpawnCoolTime;
-    private float Difficulty = 1;
+    [SerializeField] private float Difficulty = 1;
     private int hp = 1000;
     private int high;
     private int best;
@@ -31,7 +32,13 @@ public class GameManager : MonoBehaviour
     private GameObject armorCarry;
     [SerializeField]
     private Slider armor;
-    // Start is called before the first frame update
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main");
+        }
+    }
     void Start()
     {
         hpSlider.value = hp * 0.001f;
